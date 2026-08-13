@@ -4,7 +4,7 @@
 
 # Connect to Azure Account
 # Replace with your Tenant ID (GUID)
-Connect-AzAccount -Tenant "9134ca48-663d-4a05-968a-31a42f0aed3e" 
+Connect-AzAccount -Tenant "bd4a2803-c12f-444d-a360-2465287f7486"
 
 # Set the subscription context
 # Replace with your Subscription ID (GUID)
@@ -28,20 +28,20 @@ $params = @{
     WriteBack               = "Enabled"
     
     # ONTAP Origin Details (on-prem or CVO)
-    OriginPeerAddress       = @("10.40.1.193","10.40.1.194","10.40.1.198","10.40.1.199","10.40.1.224","10.40.1.225")                # e.g. 10.0.0.10
+    OriginPeerAddress       = "10.40.1.193"                # e.g. 10.0.0.10
     OriginPeerClusterName   = "HNTAPCLUS01"       # e.g. cluster01
     OriginPeerVserverName   = "HCIFSPOC01"                 # e.g. svm_data
     OriginPeerVolumeName    = "POC01"              # e.g. vol1
 
     Location                = "uksouth"             # e.g. westeurope
-    Name                    = "cachepoc02"               # e.g. cache01
-    FilePath                = "anfcachepoc02"           # e.g. anfcache
+    Name                    = "cachepoc"               # e.g. cache01
+    FilePath                = "anfcachepoc"           # e.g. anfcache
     EncryptionKeySource     = "Microsoft.NetApp"
     ThroughputMibps         = 16 # This throughput value can be adjusted based on your performance requirements. The minimum is 1 MiB/s, this will depend on the service level of the capacity pool and the workload requirements.
 
     # Networking
-    CacheSubnetResourceId   = "/subscriptions/7188942e-488b-4a44-baff-c2f9aeac8eb5/resourceGroups/m-spokeconfig-uksouth-rg/providers/Microsoft.Network/virtualNetworks/fsdclive-uksouth-vnet/subnets/main-subnet"
-    PeeringSubnetResourceId = "/subscriptions/7188942e-488b-4a44-baff-c2f9aeac8eb5/resourceGroups/m-spokeconfig-uksouth-rg/providers/Microsoft.Network/virtualNetworks/fsdclive-uksouth-vnet/subnets/main-subnet"
+    CacheSubnetResourceId   = "/subscriptions/$subsId/resourceGroups/<RG_NAME>/providers/Microsoft.Network/virtualNetworks/<VNET_NAME>/subnets/<SUBNET_NAME>"
+    PeeringSubnetResourceId = "/subscriptions/$subsId/resourceGroups/<RG_NAME>/providers/Microsoft.Network/virtualNetworks/<VNET_NAME>/subnets/<SUBNET_NAME>"
 }
 
 # Variables used for polling CacheState

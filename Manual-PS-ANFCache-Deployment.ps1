@@ -37,7 +37,7 @@ $params = @{
     Name                    = "cachepoc02"               # e.g. cache01
     FilePath                = "anfcachepoc02"           # e.g. anfcache
     EncryptionKeySource     = "Microsoft.NetApp"
-    ThroughputMibps         = 16 # This throughput value can be adjusted based on your performance requirements. The minimum is 1 MiB/s, this will depend on the service level of the capacity pool and the workload requirements.
+    ThroughputMibps         = 80 # This throughput value can be adjusted based on your performance requirements. The minimum is 1 MiB/s, this will depend on the service level of the capacity pool and the workload requirements.
 
     # Networking
     CacheSubnetResourceId   = "/subscriptions/7188942e-488b-4a44-baff-c2f9aeac8eb5/resourceGroups/m-spokeconfig-uksouth-rg/providers/Microsoft.Network/virtualNetworks/fsdclive-uksouth-vnet/subnets/main-subnet"
